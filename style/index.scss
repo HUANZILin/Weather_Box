@@ -1,0 +1,280 @@
+$color_w: #f3f3f3;
+$color_y: #ffd633;
+$color_bla: #222;
+$color_blu_s: #19283d;
+$color_blu_e: #1d678f;
+$color_rain: #4dacff;
+$color_wcloud: #f2f9fe;
+$color_gcloud: #ccc;
+
+@mixin size($w, $h) {
+  width: $w;
+  height: $h;
+}
+
+@keyframes moonmove {
+  0% {
+    box-shadow: 15px -15px $color_y;
+    transform: translate(-15px, 15px);
+  }
+  100% {
+    box-shadow: -30px 30px $color_y;
+    transform: translate(30px, -30px);
+  }
+}
+
+@keyframes clouddrift {
+  0% {
+    transform: translate(0px, 0px);
+  }
+  50% {
+    transform: translate(0px, -20px);
+  }
+  100% {
+    transform: translate(0px, 0px);
+  }
+}
+
+@keyframes raindrop {
+  0% {
+    transform: translate(0px, 0px);
+  }
+  100% {
+    transform: translate(0px, 50px);
+    opacity: 0;
+  }
+}
+
+@keyframes daylight {
+  0% {
+    background-position: 100% 30%;
+  }
+  100% {
+    background-position: 100% 100%;
+  }
+}
+
+* {
+  position: relative;
+  font-family: "Hind Vadodara", sans-serif, 微軟正黑體;
+}
+
+html,
+body {
+  @include size(100%, 100%);
+  margin: 0px;
+  padding: 0px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: $color_bla;
+}
+label {
+  cursor: pointer;
+}
+.daybox {
+  width: 150%;
+  max-width: 400px;
+  background-color: $color_w;
+  box-shadow: 0px 0px 20px rgba($color: #000000, $alpha: 0.3);
+  border-radius: 5px;
+  &:hover {
+    .bottom {
+      height: 100px;
+      .day_weather {
+        opacity: 1;
+        top: 0px;
+      }
+    }
+  }
+  .top {
+    height: 330px;
+    background: linear-gradient(20deg, $color_blu_s, $color_blu_e);
+    background-size: 100% 300%;
+    animation: daylight 20s both;
+    border-radius: 5px 5px 0px 0px;
+    .moon {
+      @include size(50px, 50px);
+      border-radius: 100%;
+      box-shadow: 15px -15px;
+      position: absolute;
+      left: 50px;
+      top: 100px;
+      animation: moonmove 20s infinite;
+    }
+    svg {
+      width: 100%;
+      polyline {
+        stroke: $color_w;
+        stroke-width: 2px;
+        fill: none;
+        opacity: 0.2;
+      }
+      circle {
+        stroke: $color_w;
+        fill: $color_w;
+        opacity: 0.2;
+      }
+      text {
+        font-size: 12px;
+        transform: translate(-8px, 20px);
+        stroke: $color_w;
+        stroke-width: 1px;
+        opacity: 0;
+      }
+    }
+    .text_area {
+      display: inline-block;
+      position: absolute;
+      bottom: 25px;
+      left: 25px;
+      color: $color_w;
+      .temperature {
+        font-size: 75px;
+        line-height: 70px;
+      }
+      .infos {
+        font-size: 13px;
+        opacity: 0.5;
+      }
+    }
+  }
+  .bottom {
+    height: 10px;
+    display: flex;
+    justify-content: center;
+    box-shadow: 0px 0px 20px rgba($color: #000000, $alpha: 0.3);
+    overflow: hidden;
+    transition-duration: 2s;
+    .day_weather {
+      width: calc(100% / 7 - 5px);
+      display: inline-block;
+      text-align: center;
+      opacity: 0;
+      top: 20px;
+      transition: 0.5s;
+      h3 {
+        font-size: 12px;
+        font-weight: 400;
+        color: $color_bla;
+        letter-spacing: 1px;
+      }
+      svg {
+        width: 100%;
+        max-width: 40px;
+        height: 30px;
+        .sun {
+          fill: $color_y;
+          stroke: rgba($color: $color_y, $alpha: 0.5);
+          stroke-width: 30px;
+          stroke-dasharray: 5px;
+        }
+        .cloud {
+          fill: $color_gcloud;
+        }
+      }
+    }
+    .day_weather:nth-child(1) {
+      transition-delay: 0.2s;
+    }
+    .day_weather:nth-child(2) {
+      transition-delay: 0.4s;
+    }
+    .day_weather:nth-child(3) {
+      transition-delay: 0.6s;
+    }
+    .day_weather:nth-child(4) {
+      transition-delay: 0.8s;
+    }
+    .day_weather:nth-child(5) {
+      transition-delay: 1s;
+    }
+    .day_weather:nth-child(6) {
+      transition-delay: 1.2s;
+    }
+    .day_weather:nth-child(7) {
+      transition-delay: 1.4s;
+    }
+  }
+  .cloud {
+    @include size(100px, 36px);
+    position: absolute;
+    left: 200px;
+    bottom: 50px;
+    border-radius: 20px;
+    animation: clouddrift 2s infinite;
+    background-color: $color_w;
+    box-shadow: 0px 0px 20px rgba($color: #000000, $alpha: 0.3);
+    &::before,
+    &::after {
+      content: "";
+      display: block;
+      @include size(50px, 50px);
+      border-radius: 100%;
+      position: absolute;
+      background-color: $color_w;
+    }
+    &::before {
+      left: 16px;
+      top: -28px;
+    }
+    &::after {
+      left: 35px;
+      top: -20px;
+    }
+    .rain {
+      @include size(2px, 10px);
+      position: absolute;
+      left: 45px;
+      bottom: 15px;
+      animation: raindrop 1s infinite linear;
+      background-color: $color_w;
+    }
+    .rain2 {
+      left: 70px;
+      bottom: 20px;
+      animation-delay: -0.4s;
+    }
+    .rain3 {
+      left: 30px;
+      bottom: 20px;
+      animation-delay: -0.7s;
+    }
+  }
+}
+
+.moon,
+.cloud {
+  transition-duration: 0.5s;
+}
+svg {
+  circle,
+  polyline,
+  text {
+    transition-duration: 0.5s;
+  }
+  polyline {
+    transition-delay: 0.5s;
+  }
+  text {
+    transition-delay: 1s;
+  }
+}
+
+#checked {
+  display: none;
+}
+
+#checked:checked + .top {
+  .moon,
+  .cloud {
+    opacity: 0.5;
+  }
+  svg {
+    circle,
+    polyline,
+    text {
+      opacity: 1;
+    }
+  }
+}

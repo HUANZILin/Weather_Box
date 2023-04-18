@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weather Box</title>
+    <link rel="stylesheet" href="./style/index.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Hind+Vadodara:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <label for="checked">
+      <div class="daybox">
+        <input id="checked" type="checkbox" />
+        <div class="top">
+          <div class="moon"></div>
+          <div class="cloud">
+            <div class="rain"></div>
+            <div class="rain rain2"></div>
+            <div class="rain rain3"></div>
+          </div>
+          <svg>
+            <circle cx="0" cy="100" r="3"></circle>
+            <circle cx="70" cy="110" r="3"></circle>
+            <text x="70" y="110">26°C</text>
+            <circle cx="140" cy="120" r="3"></circle>
+            <text x="140" y="120">27°C</text>
+            <circle cx="210" cy="120" r="3"></circle>
+            <text x="210" y="120">27°C</text>
+            <circle cx="280" cy="110" r="3"></circle>
+            <text x="280" y="110">26°C</text>
+            <circle cx="350" cy="100" r="3"></circle>
+            <text x="350" y="100">25°C</text>
+            <circle cx="560" cy="50" r="3"></circle>
+            <polyline
+              points="0,100 70,110 140,120 210,120 280,110 350,100 560,50"
+            ></polyline>
+            >
+          </svg>
+          <div class="text_area">
+            <div class="temperature">25°C</div>
+            <div class="infos">
+              <div class="address">高雄市燕巢區</div>
+              <div class="time">星期三 下午18:00</div>
+            </div>
+          </div>
+        </div>
+        <div class="bottom">
+          <div class="day_weather">
+            <h3>MON</h3>
+            <svg viewbox="-50 -50 100 100">
+              <circle class="sun" cx="0" cy="0" r="22"></circle>
+            </svg>
+          </div>
+          <div class="day_weather">
+            <h3>TUE</h3>
+            <svg viewbox="-50 -50 100 100">
+              <circle class="sun" cx="0" cy="0" r="22"></circle>
+            </svg>
+          </div>
+          <div class="day_weather">
+            <h3>WED</h3>
+            <svg viewbox="-60 -45 100 100">
+              <circle class="sun" cx="0" cy="0" r="22"></circle>
+              <circle class="cloud" cx="0" cy="30" r="20"></circle>
+              <circle class="cloud" cx="-15" cy="30" r="20"></circle>
+              <circle class="cloud" cx="-30" cy="30" r="20"></circle>
+              <circle class="cloud" cx="-25" cy="10" r="15"></circle>
+              <circle class="cloud" cx="-7" cy="15" r="15"></circle>
+            </svg>
+          </div>
+          <div class="day_weather">
+            <h3>THU</h3>
+            <svg viewbox="-60 -45 100 100">
+              <circle class="sun" cx="0" cy="0" r="22"></circle>
+              <circle class="cloud" cx="0" cy="30" r="20"></circle>
+              <circle class="cloud" cx="-15" cy="30" r="20"></circle>
+              <circle class="cloud" cx="-30" cy="30" r="20"></circle>
+              <circle class="cloud" cx="-25" cy="10" r="15"></circle>
+              <circle class="cloud" cx="-7" cy="15" r="15"></circle>
+            </svg>
+          </div>
+          <div class="day_weather">
+            <h3>FRI</h3>
+            <svg viewbox="-50 -50 100 100">
+              <circle class="sun" cx="0" cy="0" r="22"></circle>
+            </svg>
+          </div>
+          <div class="day_weather">
+            <h3>SAT</h3>
+            <svg viewbox="-50 -50 100 100">
+              <circle class="sun" cx="0" cy="0" r="22"></circle>
+            </svg>
+          </div>
+          <div class="day_weather">
+            <h3>SUN</h3>
+            <svg viewbox="-50 -50 100 100">
+              <circle class="sun" cx="0" cy="0" r="22"></circle>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </label>
+  </body>
+</html>
